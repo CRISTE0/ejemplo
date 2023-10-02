@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: orange;
+            display: block;
+            border-radius: 5px;
+        }
+    </style>
+    <title>Jquery</title>
+
+
+</head>
+
+<body>
+
+    <!-- <a class="button alias" href="#">Acción con $
+        <h2>hi</h2>
+    </a>
+    <a class="button jquery" href="#">Acción con jQuery</a>
+ -->
+
+    <h2>monda</h2>
+    <p>soy el parrafo</p>
+
+    <a class='testClick' href='http://adsl.org.mx'>enlace 1</a>
+    <a class='testClick' href='http://google.com'>enlace 2</a>
+    <a class='testClick' href='../sesion03/index.html'>enlace 3 </a>
+
+
+
+    <div id="box"></div>
+
+    <script>
+        $('h2 + p').css('color', '#946900');
+        $('h2 + p').css('font-style', 'italic');
+        $('h2 + p').css('font-weight', 'bold');
+
+        // $parrafosBajoTitulo = $('h2 + p');
+        // $parrafosBajoTitulo.css('color', '#946900');
+        // $parrafosBajoTitulo.css('font-style', 'italic');
+
+        // $("a").hover(function () {
+        //     console.log("evento hover activo");
+        // })
+
+        $('a.testClick').click(function (event) {
+            $('.log').html('<strong>Resultado:</strong> ' + $(this).text());
+            event.preventDefault();
+        });
+
+        $("a")
+            .click(function () {
+                console.log('Ejecución del manejador1 para el evento click del enlace');
+            })
+            .click(function () {
+                console.log('Ejecución del manejador2 para el evento click del enlace');
+            });
+
+        $("a").hover(
+            function () {
+                $(this).css('color', 'red');
+            },
+            function () {
+                $(this).css('color', 'green');
+            }
+        );
+
+        $('#box').hover(
+            function () {
+                $(this).animate({ "width": "300px", "heigth": "300px" });
+            },
+            function () {
+                $(this).animate({ "width": "100px", "heigth": "100px" });
+            }
+        );
+
+
+    </script>
+
+</body>
+
+</html>
